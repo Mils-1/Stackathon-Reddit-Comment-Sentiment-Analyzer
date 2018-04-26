@@ -1,0 +1,29 @@
+{
+  "name": "stackathon-reddit-comment-sentiment-analyzer",
+  "version": "1.0",
+  "description": "Build an Extension!",
+  "author": "Nick Milazzo",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+  },
+  "icons": {
+    "128": "images/ace-ventura.png"
+  },
+  "page_action": {
+    "default_icon": {
+      "16": "images/ace-ventura.png"
+    },
+    "default_title": "Google Mail",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.reddit.com/r/*/comments/*"],
+      "css": [],
+      "js": ["index.js"]
+    }
+  ]
+}

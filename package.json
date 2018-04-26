@@ -1,0 +1,22 @@
+{
+  "name": "stackathon-reddit-comment-sentiment-analyzer",
+  "version": "1.0.0",
+  "description": "The purpose of this project is to produce a chrome extension that analyzes and displays a sentiment value/weight of reddit comments right in the DOM of reddit threads.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mils-1/Stackathon-Reddit-Comment-Sentiment-Analyzer.git"
+  },
+  "author": "Nick Milazzo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mils-1/Stackathon-Reddit-Comment-Sentiment-Analyzer/issues"
+  },
+  "homepage": "https://github.com/Mils-1/Stackathon-Reddit-Comment-Sentiment-Analyzer#readme",
+  "dependencies": {
+    "sentiment": "^5.0.0"
+  }
+}
