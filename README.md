@@ -1,2 +1,3 @@
 # Stackathon-Reddit-Comment-Sentiment-Analyzer
-Chrome extension that analyzes and produces a sentiment value/weight based on reddit comments
+
+The purpose of this project is to produce a chrome extension that analyzes and displays a sentiment value/weight of reddit comments right in the DOM of reddit threads. 
