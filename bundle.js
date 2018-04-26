@@ -188,7 +188,7 @@ eval("/*eslint no-useless-escape: \"off\"*/\n\n/**\n * Remove special characters
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Sentiment = __webpack_require__(/*! sentiment */ \"./node_modules/sentiment/lib/index.js\");\nconst sentiment = new Sentiment();\nconst result = sentiment.analyze('Cats are stupid.');\nconsole.log(`result of sentiment.analyze('Cats are stupid.') :`, result);\nconst commentNodes = document.querySelectorAll('div.entry');\nconsole.log(`commentNodes`);\nconsole.dir(commentNodes);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const Sentiment = __webpack_require__(/*! sentiment */ \"./node_modules/sentiment/lib/index.js\");\nconst sentiment = new Sentiment();\n\nconst result = sentiment.analyze('Cats are stupid.');\nconsole.log(`result of sentiment.analyze('Cats are stupid.') :`, result);\n\nconst commentNodeList = document.querySelectorAll('div.entry p');\nconst commentArr = Array.from(commentNodeList);\nconst filteredCommentArr = commentArr.filter(comment => {\n  return comment.className.trim() !== 'tagline';\n})\nconsole.log(`filteredCommentArr`);\nconsole.dir(filteredCommentArr);\nconst sentimentDataArr = filteredCommentArr.map(comment => {\n  return sentiment.analyze(comment.innerText);\n});\nconsole.log(`sentimentDataArr`);\nconsole.dir(sentimentDataArr);\n// console.log(`--------------`);\n// console.log(`textArr`);\n// console.dir(textArr);\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

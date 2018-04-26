@@ -1,2 +1,7 @@
 node_modules
 secrets.*.js
+bundle.js
+bundle.js.map
+.DS_Store
+npm-debug.log
+
