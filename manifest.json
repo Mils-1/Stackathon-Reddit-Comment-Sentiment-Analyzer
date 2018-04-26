@@ -1,5 +1,5 @@
 {
-  "name": "stackathon-reddit-comment-sentiment-analyzer",
+  "name": "reddit-comment-sentiment-analyzer",
   "version": "1.0",
   "description": "Build an Extension!",
   "author": "Nick Milazzo",
@@ -23,7 +23,7 @@
     {
       "matches": ["https://www.reddit.com/r/*/comments/*"],
       "css": [],
-      "js": ["index.js"]
+      "js": ["bundle.js"]
     }
   ]
 }
