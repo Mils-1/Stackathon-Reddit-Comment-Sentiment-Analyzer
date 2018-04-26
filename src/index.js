@@ -20,4 +20,3 @@ console.dir(sentimentDataArr);
 // console.log(`textArr`);
 // console.dir(textArr);
 
-// TEST COMMENT
