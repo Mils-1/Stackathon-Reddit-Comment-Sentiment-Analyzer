@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Mils-1/Stackathon-Reddit-Comment-Sentiment-Analyzer#readme",
   "dependencies": {
+    "d3": "^5.1.0",
+    "d3-cloud": "^1.2.5",
     "sentiment": "^5.0.0"
   },
   "devDependencies": {

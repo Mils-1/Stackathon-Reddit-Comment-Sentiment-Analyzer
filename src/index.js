@@ -45,11 +45,35 @@ window.onload = function (event) {
         }
       });
     });
+    const positiveTokenArr = [];
+    const negativeTokenArr = [];
+    for (let key in positiveTokenObj) {
+      if (positiveTokenObj.hasOwnProperty(key)) {
+        positiveTokenArr.push({ [positiveTokenObj[key]]: key })
+      }
+    }
+    for (let key in negativeTokenObj) {
+      if (negativeTokenObj.hasOwnProperty(key)) {
+        negativeTokenArr.push({ [negativeTokenObj[key]]: key })
+      }
+    }
+    const d3PositiveTokenArr = positiveTokenArr.map(obj => {
+      const size = Number(Object.keys(obj)[0]);
+      const text = Object.values(obj)[0];
+      return { text, size };
+    });
+
+    const d3NegativeTokenArr = negativeTokenArr.map(obj => {
+      const size = Number(Object.keys(obj)[0]);
+      const text = Object.values(obj)[0];
+      return { text, size };
+    });
+
     return {
       totalScore,
       averageScore,
-      positiveTokenObj,
-      negativeTokenObj
+      d3PositiveTokenArr,
+      d3NegativeTokenArr
     };
   };
 
