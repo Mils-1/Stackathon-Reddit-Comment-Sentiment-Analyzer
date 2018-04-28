@@ -53,12 +53,15 @@ window.onload = function (event) {
         negativeTokenArr.push({ [negativeTokenObj[key]]: key })
       }
     }
+
     //Remove all words where count is less than 2
     positiveTokenArr = positiveTokenArr.filter(token => {
       return Object.keys(token)[0] >= 2;
     });
-    console.log(`positiveTokenArr`, positiveTokenArr);
-    console.log(`negativeTokenArr`, negativeTokenArr);
+    negativeTokenArr = negativeTokenArr.filter(token => {
+      return Object.keys(token)[0] >= 2;
+    });
+
     const d3PositiveTokenArr = positiveTokenArr.map(obj => {
       const size = Number(Object.keys(obj)[0]);
       const text = Object.values(obj)[0];

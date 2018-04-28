@@ -16,7 +16,7 @@ chrome.storage.local.get('summarizedData', data => {
   averageScoreDomElem.textContent = averageScore;
 
   // ## d3 code ## //
-  var layout = cloud()
+  const layout = cloud()
     .size([800, 800])
     .words(d3PositiveTokenArr)
     .padding(5)
@@ -25,7 +25,7 @@ chrome.storage.local.get('summarizedData', data => {
     })
     .font('Impact')
     .fontSize(function(d) {
-      return d.size * 3;
+      return d.size * 2.5;
     })
     .on('end', draw);
 
@@ -62,4 +62,20 @@ chrome.storage.local.get('summarizedData', data => {
         return d.text;
       });
   }
+
+  const layout1 = cloud()
+    .size([800, 800])
+    .words(d3NegativeTokenArr)
+    .padding(5)
+    .rotate(function() {
+      return ~~(Math.random() * 6 - 2.5) * 30;
+    })
+    .font('Impact')
+    .fontSize(function(d) {
+      return d.size * 2.5;
+    })
+    .on('end', draw);
+
+  layout1.start();
+
 });
