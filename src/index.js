@@ -2,11 +2,7 @@ const Sentiment = require('sentiment');
 const sentiment = new Sentiment();
 
 window.onload = function (event) {
-  // const loadCommentLinksArr = Array.from(document.querySelectorAll('a.button'));
-  // loadCommentLinksArr.forEach(link => {
-  //   link.click();
-  // });
-  // console.dir(loadCommentLinksArr);
+
   const commentNodeArr = Array.from(document.querySelectorAll('div.entry p'));
   const filteredCommentArr = commentNodeArr.filter(comment => {
     return comment.className.trim() !== 'tagline';
@@ -45,8 +41,8 @@ window.onload = function (event) {
         }
       });
     });
-    const positiveTokenArr = [];
-    const negativeTokenArr = [];
+    let positiveTokenArr = [];
+    let negativeTokenArr = [];
     for (let key in positiveTokenObj) {
       if (positiveTokenObj.hasOwnProperty(key)) {
         positiveTokenArr.push({ [positiveTokenObj[key]]: key })
@@ -57,6 +53,12 @@ window.onload = function (event) {
         negativeTokenArr.push({ [negativeTokenObj[key]]: key })
       }
     }
+    //Remove all words where count is less than 2
+    positiveTokenArr = positiveTokenArr.filter(token => {
+      return Object.keys(token)[0] >= 2;
+    });
+    console.log(`positiveTokenArr`, positiveTokenArr);
+    console.log(`negativeTokenArr`, negativeTokenArr);
     const d3PositiveTokenArr = positiveTokenArr.map(obj => {
       const size = Number(Object.keys(obj)[0]);
       const text = Object.values(obj)[0];
