@@ -1,7 +1,7 @@
 {
   "name": "reddit-comment-sentiment-analyzer",
   "version": "1.0",
-  "description": "This extension fetches reddit comments and runs the text through a sentiment analyzer. It then summarizes the data and aims to display the data in an easily digestible but interesting format ",
+  "description": "This extension fetches reddit comments and runs the text through a sentiment analyzer. It then summarizes the data and aims to display the data in an easily digestible but interesting format",
   "author": "Nick Milazzo",
   "manifest_version": 2,
   "permissions": [
@@ -15,13 +15,13 @@
     "persistent": false
   },
   "icons": {
-    "128": "images/ace-ventura.png"
+    "128": "images/SA-icon-1.png"
   },
   "browser_action": {
     "default_icon": {
-      "16": "images/ace-ventura.png"
+      "16": "images/SA-icon-1.png"
     },
-    "default_title": "Data Visual",
+    "default_title": "Semantic Analysis",
     "default_popup": "src/popup.html"
   },
   "content_scripts": [

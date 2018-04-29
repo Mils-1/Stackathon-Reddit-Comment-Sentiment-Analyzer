@@ -3,6 +3,7 @@ const sentiment = new Sentiment();
 
 window.onload = function (event) {
 
+  // Fetch comment paragraphs from Reddits DOM
   const commentNodeArr = Array.from(document.querySelectorAll('div.entry p'));
   const filteredCommentArr = commentNodeArr.filter(comment => {
     return comment.className.trim() !== 'tagline';
@@ -22,7 +23,7 @@ window.onload = function (event) {
     const totalScore = arr.reduce((acc, curr) => {
       return acc + curr.score;
     }, 0);
-    const averageScore = totalScore / arr.length;
+    const averageScore = parseFloat(totalScore / arr.length).toFixed(2);
     const positiveTokenObj = {};
     const negativeTokenObj = {};
     arr.forEach(comment => {
@@ -85,6 +86,6 @@ window.onload = function (event) {
   const summarizedData = convertRawSentimentDataToSummarizedData(sentimentDataArr);
   console.log(`######## Converted Data ########`);
   console.log(summarizedData);
-  chrome.storage.local.set({summarizedData});
+  chrome.storage.local.set({ summarizedData });
 }
 

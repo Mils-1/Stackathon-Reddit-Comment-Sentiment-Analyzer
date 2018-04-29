@@ -21,11 +21,13 @@ chrome.storage.local.get('summarizedData', data => {
     .words(d3PositiveTokenArr)
     .padding(5)
     .rotate(function() {
-      return ~~(Math.random() * 6 - 2.5) * 30;
+      //(Math.random() * 2) * 60
+      //return ~~(Math.random() * 6 - 2.5) * 30;
+      return 0;
     })
     .font('Impact')
     .fontSize(function(d) {
-      return d.size * 2.5;
+      return d.size * 6;
     })
     .on('end', draw);
 
@@ -68,11 +70,12 @@ chrome.storage.local.get('summarizedData', data => {
     .words(d3NegativeTokenArr)
     .padding(5)
     .rotate(function() {
-      return ~~(Math.random() * 6 - 2.5) * 30;
+      return 0;
+      //return ~~(Math.random() * 6 - 2.5) * 30;
     })
     .font('Impact')
     .fontSize(function(d) {
-      return d.size * 2.5;
+      return d.size * 6;
     })
     .on('end', draw);
 
