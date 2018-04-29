@@ -17,9 +17,9 @@ chrome.storage.local.get('summarizedData', data => {
 
   // ## d3 code ## //
   const layout = cloud()
-    .size([800, 800])
+    .size([800, 600])
     .words(d3PositiveTokenArr)
-    .padding(5)
+    .padding(3)
     .rotate(function() {
       //(Math.random() * 2) * 60
       //return ~~(Math.random() * 6 - 2.5) * 30;
@@ -36,7 +36,7 @@ chrome.storage.local.get('summarizedData', data => {
   function draw(words) {
     console.log(`d3: `, d3);
     d3
-      .select('body')
+      .select('#positive-token-cloud')
       .append('svg')
       .attr('width', layout.size()[0])
       .attr('height', layout.size()[1])
@@ -66,9 +66,9 @@ chrome.storage.local.get('summarizedData', data => {
   }
 
   const layout1 = cloud()
-    .size([800, 800])
+    .size([800, 600])
     .words(d3NegativeTokenArr)
-    .padding(5)
+    .padding(3)
     .rotate(function() {
       return 0;
       //return ~~(Math.random() * 6 - 2.5) * 30;
@@ -77,8 +77,69 @@ chrome.storage.local.get('summarizedData', data => {
     .fontSize(function(d) {
       return d.size * 6;
     })
-    .on('end', draw);
+    .on('end', draw1);
 
   layout1.start();
 
+  function draw1(words) {
+    console.log(`d3: `, d3);
+    d3
+      .select('#negative-token-cloud')
+      .append('svg')
+      .attr('width', layout.size()[0])
+      .attr('height', layout.size()[1])
+      .append('g')
+      .attr(
+        'transform',
+        'translate(' + layout.size()[0] / 2 + ',' + layout.size()[1] / 2 + ')'
+      )
+      .selectAll('text')
+      .data(words)
+      .enter()
+      .append('text')
+      .style('font-size', function(d) {
+        return d.size + 'px';
+      })
+      .style('font-family', 'Impact')
+      .style('fill', function(d) {
+        return 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
+      })
+      .attr('text-anchor', 'middle')
+      .attr('transform', function(d) {
+        return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
+      })
+      .text(function(d) {
+        return d.text;
+      });
+  }
+
+  $('#positive-token-table').tabulator({
+    initialSort: [
+      {column: 'size', dir: 'desc'}
+    ],
+    height: 500, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+    layout: 'fitColumns', //fit columns to width of table (optional)
+    columns: [
+      //Define Table Columns
+      { title: 'Word', field: 'text', align: 'center', width: 400, sorter: 'string' },
+      { title: 'Quantity', field: 'size', align: 'center', sorter: 'number' }
+    ],
+  });
+
+  $('#positive-token-table').tabulator('setData', d3PositiveTokenArr);
+
+  $('#negative-token-table').tabulator({
+    initialSort: [
+      {column: 'size', dir: 'desc'}
+    ],
+    height: 500, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+    layout: 'fitColumns', //fit columns to width of table (optional)
+    columns: [
+      //Define Table Columns
+      { title: 'Word', field: 'text', align: 'center', width: 400, sorter: 'string' },
+      { title: 'Quantity', field: 'size', align: 'center', sorter: 'number' }
+    ],
+  });
+
+  $('#negative-token-table').tabulator('setData', d3NegativeTokenArr);
 });

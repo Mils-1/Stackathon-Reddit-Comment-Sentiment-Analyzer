@@ -9,3 +9,21 @@
   font-size: 120%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
+
+#positive-title-cloud {
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+#negative-title-cloud {
+  font-weight: bold;
+}
+
+.tabulator .tabulator-col-title{
+  text-align:center;
+}
+
+.clouds-and-tables {
+  margin-left: 50px;
+  margin-right: 50px;
+}

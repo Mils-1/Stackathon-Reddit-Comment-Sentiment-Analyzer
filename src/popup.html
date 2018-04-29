@@ -8,6 +8,7 @@
   <title>Semantic Analysis</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/3.5.1/css/tabulator.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,25 +23,48 @@
     </div>
   </nav>
   <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Type</th>
-          <th scope="col">Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Total Score</th>
-          <td id="total-score"></td>
-        </tr>
-        <tr>
-          <th scope="row">Average Score</th>
-          <td id="average-score"></td>
-        </tr>
-      </tbody>
-    </table>
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Total Score</th>
+        <td id="total-score"></td>
+      </tr>
+      <tr>
+        <th scope="row">Average Score</th>
+        <td id="average-score"></td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="list-group">
+    <li id="positive-title-cloud" class="list-group-item">Positive Token Cloud</li>
+  </ul>
+  <div id="positive-token-cloud"></div>
+  <ul class="list-group">
+    <li id="negative-title-cloud" class="list-group-item">Negative Token Cloud</li>
+  </ul>
+  <div id="negative-token-cloud"></div>
+  <div class="clouds-and-tables">
+    <ul class="list-group">
+      <li id="positive-title-table" class="list-group-item">Positive Token Table</li>
+    </ul>
+    <div id="positive-token-table"></div>
+    <ul class="list-group">
+      <li id="negative-title-table" class="list-group-item">Negative Token Table</li>
+    </ul>
+    <div id="negative-token-table"></div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/3.5.1/js/tabulator.min.js"></script>
   <script src="popup.js"></script>
 </body>
 
