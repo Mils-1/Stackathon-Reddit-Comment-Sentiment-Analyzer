@@ -63,6 +63,18 @@ window.onload = function (event) {
       return Object.keys(token)[0] >= 2;
     });
 
+    //Profanity Filter
+    const profanityList = ['fucking', 'fuck', 'fucked', 'fuckin', 'shit', 'bitch', 'ass'];
+    // positiveTokenArr = positiveTokenArr.filter(token => {
+    //   return !profanityList.includes(Object.values(token)[0]);
+    // })
+
+    negativeTokenArr = negativeTokenArr.filter(token => {
+      return !profanityList.includes(Object.values(token)[0]);
+    })
+
+    console.log(`negativeTokenArr: `, negativeTokenArr);
+
     const d3PositiveTokenArr = positiveTokenArr.map(obj => {
       const size = Number(Object.keys(obj)[0]);
       const text = Object.values(obj)[0];

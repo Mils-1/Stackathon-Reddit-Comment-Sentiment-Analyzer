@@ -11,7 +11,7 @@ chrome.storage.local.get('summarizedData', data => {
     d3NegativeTokenArr,
     d3PositiveTokenArr
   } = summarizedData;
-  const d3fontSize = 7;
+  const d3fontSize = 8;
   console.log(`d3PositiveTokenArr: `, d3PositiveTokenArr);
 
   totalScoreDomElem.textContent = totalScore;

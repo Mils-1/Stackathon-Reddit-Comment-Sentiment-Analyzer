@@ -21,7 +21,7 @@
     "default_icon": {
       "16": "images/SA-icon-1.png"
     },
-    "default_title": "Semantic Analysis",
+    "default_title": "Sentiment Analysis",
     "default_popup": "src/popup.html"
   },
   "content_scripts": [
