@@ -27,7 +27,7 @@ chrome.storage.local.get('summarizedData', data => {
     })
     .font('Impact')
     .fontSize(function(d) {
-      return d.size * 6;
+      return d.size * 7;
     })
     .on('end', draw);
 
@@ -75,7 +75,7 @@ chrome.storage.local.get('summarizedData', data => {
     })
     .font('Impact')
     .fontSize(function(d) {
-      return d.size * 6;
+      return d.size * 7;
     })
     .on('end', draw1);
 
