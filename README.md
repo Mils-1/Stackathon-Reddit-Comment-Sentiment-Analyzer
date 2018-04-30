@@ -9,5 +9,5 @@
 # How it Works
 
 - This chrome extension manually fetches / scrapes all of the comments for a particular reddit thread.
-- It then feeds all of the comments into the npm library [Sentiment(https://www.npmjs.com/package/sentiment)
+- It then feeds all of the comments into the npm library [Sentiment](https://www.npmjs.com/package/sentiment)
 - It then summarizes this data and displays it in the popup window located in the chrome toolbar
