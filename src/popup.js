@@ -11,6 +11,8 @@ chrome.storage.local.get('summarizedData', data => {
     d3NegativeTokenArr,
     d3PositiveTokenArr
   } = summarizedData;
+  const d3fontSize = 7;
+  console.log(`d3PositiveTokenArr: `, d3PositiveTokenArr);
 
   totalScoreDomElem.textContent = totalScore;
   averageScoreDomElem.textContent = averageScore;
@@ -27,7 +29,7 @@ chrome.storage.local.get('summarizedData', data => {
     })
     .font('Impact')
     .fontSize(function(d) {
-      return d.size * 7;
+      return d.size * d3fontSize;
     })
     .on('end', draw);
 
@@ -75,7 +77,7 @@ chrome.storage.local.get('summarizedData', data => {
     })
     .font('Impact')
     .fontSize(function(d) {
-      return d.size * 7;
+      return d.size * d3fontSize;
     })
     .on('end', draw1);
 
@@ -113,6 +115,7 @@ chrome.storage.local.get('summarizedData', data => {
       });
   }
 
+
   $('#positive-token-table').tabulator({
     initialSort: [
       {column: 'size', dir: 'desc'}
@@ -126,7 +129,12 @@ chrome.storage.local.get('summarizedData', data => {
     ],
   });
 
-  $('#positive-token-table').tabulator('setData', d3PositiveTokenArr);
+  let adjustedPositiveTokens = d3PositiveTokenArr.map(obj => {
+    obj.size = obj.size / d3fontSize;
+    return obj;
+  })
+
+  $('#positive-token-table').tabulator('setData', adjustedPositiveTokens);
 
   $('#negative-token-table').tabulator({
     initialSort: [
@@ -141,5 +149,10 @@ chrome.storage.local.get('summarizedData', data => {
     ],
   });
 
-  $('#negative-token-table').tabulator('setData', d3NegativeTokenArr);
+  let adjustedNegativeTokens = d3NegativeTokenArr.map(obj => {
+    obj.size = obj.size / d3fontSize;
+    return obj;
+  })
+
+  $('#negative-token-table').tabulator('setData', adjustedNegativeTokens);
 });
