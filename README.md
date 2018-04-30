@@ -4,7 +4,8 @@
 
 # Get Started
 
-- Just click the SA icon in the toolbar to see the results.
+- Open a reddit comment thread of the form `reddit.com/*/comments/*`
+- Click the SA icon in the toolbar to see the results.
 
 # How it Works
 
