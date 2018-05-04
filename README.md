@@ -13,7 +13,7 @@
 
 # How it Works
 
-- This chrome extension manually fetches / scrapes all of the comments for a particular reddit thread. The fetched data is dependent on user configured settings.
+- This chrome extension manually fetches / scrapes 500 comments for a particular reddit thread. The fetched data is dependent on user configured settings.
 - It feeds all of the comment data into the npm library [Sentiment](https://www.npmjs.com/package/sentiment).
 - It finally summarizes this data and displays it in the popup window.
 
