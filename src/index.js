@@ -9,15 +9,9 @@ window.onload = function (event) {
     return comment.className.trim() !== 'tagline';
   });
 
-  console.log(`filteredCommentArr`);
-  console.dir(filteredCommentArr);
-
   const sentimentDataArr = filteredCommentArr.map(comment => {
     return sentiment.analyze(comment.innerText);
   });
-
-  console.log(`sentimentDataArr`);
-  console.dir(sentimentDataArr);
 
   const convertRawSentimentDataToSummarizedData = arr => {
     const totalScore = arr.reduce((acc, curr) => {
@@ -42,8 +36,10 @@ window.onload = function (event) {
         }
       });
     });
+
     let positiveTokenArr = [];
     let negativeTokenArr = [];
+
     for (let key in positiveTokenObj) {
       if (positiveTokenObj.hasOwnProperty(key)) {
         positiveTokenArr.push({ [positiveTokenObj[key]]: key })
@@ -65,15 +61,10 @@ window.onload = function (event) {
 
     //Profanity Filter
     const profanityList = ['fucking', 'fuck', 'fucked', 'fuckin', 'shit', 'bitch', 'ass'];
-    // positiveTokenArr = positiveTokenArr.filter(token => {
-    //   return !profanityList.includes(Object.values(token)[0]);
-    // })
 
     negativeTokenArr = negativeTokenArr.filter(token => {
       return !profanityList.includes(Object.values(token)[0]);
     })
-
-    console.log(`negativeTokenArr: `, negativeTokenArr);
 
     const d3PositiveTokenArr = positiveTokenArr.map(obj => {
       const size = Number(Object.keys(obj)[0]);
@@ -96,8 +87,6 @@ window.onload = function (event) {
   };
 
   const summarizedData = convertRawSentimentDataToSummarizedData(sentimentDataArr);
-  console.log(`######## Converted Data ########`);
-  console.log(summarizedData);
   chrome.storage.local.set({ summarizedData });
 }
 

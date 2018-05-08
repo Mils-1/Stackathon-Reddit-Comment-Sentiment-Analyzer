@@ -4,7 +4,6 @@ const { cloud } = d3.layout;
 
 chrome.storage.local.get('summarizedData', data => {
   const { summarizedData } = data;
-  console.log('summarizedData: ', summarizedData);
   const {
     totalScore,
     averageScore,
@@ -12,7 +11,6 @@ chrome.storage.local.get('summarizedData', data => {
     d3PositiveTokenArr
   } = summarizedData;
   const d3fontSize = 8;
-  console.log(`d3PositiveTokenArr: `, d3PositiveTokenArr);
 
   totalScoreDomElem.textContent = totalScore;
   averageScoreDomElem.textContent = averageScore;
@@ -36,7 +34,6 @@ chrome.storage.local.get('summarizedData', data => {
   layout.start();
 
   function draw(words) {
-    console.log(`d3: `, d3);
     d3
       .select('#positive-token-cloud')
       .append('svg')
@@ -84,7 +81,6 @@ chrome.storage.local.get('summarizedData', data => {
   layout1.start();
 
   function draw1(words) {
-    console.log(`d3: `, d3);
     d3
       .select('#negative-token-cloud')
       .append('svg')
