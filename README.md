@@ -21,3 +21,9 @@
 
 - For best results one should login to their reddit account and edit their comments settings under the preferences tab. Increase the amount of comments being displayed to 500 which is currently the max allowed. If your account has gold you can load 1500 comments.
 - This will drastically affect the word clouds.
+
+# Future Goals
+
+- Access the official reddit API instead of manually scraping data.
+- Build out my own site to display the sentiment analysis rather than displaying it only in the popup window.
+- Extend out the sentiment analysis to other social media like twitter
